@@ -4,6 +4,7 @@ class Form {
         this.greeting = createElement('h3')
         this.button = createButton('Play')
         this.title = createElement('h2')
+        this.reset = createButton('Reset')
     }
     hide (){
         this.input.hide();
@@ -15,7 +16,7 @@ class Form {
         
        this.title.html("car racing game")
         this.title.position(displayWidth/2-50,0)
-       
+       this.reset.position(displayWidth-100,20)
         this.input.position(displayWidth/2-40,displayHeight/2-80)
         this.button.position(displayWidth/2+30,displayHeight/2)
         this.button.mousePressed(()=>{
@@ -28,6 +29,10 @@ class Form {
             player.updateCount(playerCount)
             this.greeting.html("hello"+player.name)
             this.greeting.position(displayWidth/2-70,displayHeight/4)
+        })
+        this.reset.mousePressed(()=>{
+            player.updateCount(0)
+            game.update(0)
         })
     }
 }
